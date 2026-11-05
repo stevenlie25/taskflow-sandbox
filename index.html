@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="id">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#245747"><title>TaskFlow — Satu langkah lebih dekat</title><link rel="stylesheet" href="styles.css"><script type="module" src="app.js"></script></head>
+<body>
+  <header class="topbar"><a class="brand" href="./"><span class="logo">✓</span> TaskFlow<span class="brand-dot">.</span></a><span class="local-label">● Tersimpan di perangkat ini</span></header>
+  <main>
+    <section class="intro"><p class="eyebrow">RUANG UNTUK BERPROSES</p><h1>Langkah kecil.<br><span>Kemajuan berarti.</span></h1><p>Tidak perlu menyelesaikan semuanya sekaligus.<br>Pilih satu tugas, mulai 15 menit, dan temukan alurmu.</p></section>
+    <p id="notice" role="status" aria-live="polite"></p>
+    <section class="stats" aria-label="Ringkasan"><div><span class="stat-icon">✓</span><div><strong id="completed">0 / 0</strong><span>Tugas selesai</span></div></div><div><span class="stat-icon">◷</span><div><strong id="focus-time">0 menit</strong><span>Total waktu fokus</span></div></div><div><span class="stat-icon">↗</span><div><strong id="progress-text">0%</strong><span>Progres tugas</span></div></div><progress id="progress" value="0" max="100" aria-label="Progres tugas"></progress></section>
+    <div class="workspace">
+      <section class="tasks panel"><div class="section-title"><div><p class="eyebrow">SATU PER SATU</p><h2>Daftar tugasmu</h2></div><span id="task-count" class="badge">0 tugas</span></div>
+        <form id="task-form"><label class="sr-only" for="task-title">Nama tugas baru</label><input id="task-title" maxlength="160" placeholder="Apa yang ingin kamu kerjakan?" required autocomplete="off"><button class="primary" type="submit">+ Tambah</button></form>
+        <div class="filters" aria-label="Filter tugas"><button data-filter="all" aria-pressed="true">Semua</button><button data-filter="active" aria-pressed="false">Belum selesai</button><button data-filter="done" aria-pressed="false">Selesai</button></div>
+        <ul id="task-list"></ul><div id="empty" class="empty"><span>✧</span><h3>Mulai dari satu hal kecil</h3><p>Tambahkan tugas pertamamu di atas.<br>Misalnya, “Baca satu halaman” atau “Buat kerangka ide”.</p></div>
+      </section>
+      <aside class="focus panel" aria-labelledby="focus-heading"><p class="eyebrow">WAKTU UNTUK SATU HAL</p><h2 id="focus-heading">Ruang fokus</h2><p class="muted">15 menit untuk membuat kemajuan.</p><div class="focus-task"><span>FOKUS UTAMA</span><strong id="focus-title">Belum ada tugas dipilih</strong><p id="focus-hint">Pilih “Fokus” pada salah satu tugas untuk memulai.</p></div><div class="timer-ring"><span id="timer" role="timer" aria-label="Sisa waktu fokus">15:00</span><span id="timer-status">Siap saat kamu siap</span></div><div class="timer-controls"><button id="start" class="primary">Mulai fokus</button><button id="stop" class="secondary" hidden>Berhenti</button></div><button id="clear-focus" class="text-button" hidden>Lepaskan fokus utama</button><p class="focus-note">☼ Fokus adalah pilihanmu.<br>Semua tugas tetap bisa diakses saat timer berjalan.</p></aside>
+    </div>
+    <section class="history panel"><div class="section-title"><h2>Jejak fokus</h2><span class="muted">Setiap menit berarti.</span></div><ul id="history"></ul><p id="history-empty" class="muted">Sesi yang selesai atau dihentikan akan tercatat di sini.</p></section>
+    <footer>Dibuat untuk kemajuan, bukan kesempurnaan. <span>TaskFlow / MVP</span></footer>
+  </main>
+  <dialog id="edit-dialog"><form id="edit-form"><h2>Ubah tugas</h2><label for="edit-title">Nama tugas</label><input id="edit-title" maxlength="160" required><div class="dialog-actions"><button type="button" id="cancel-edit" class="secondary">Batal</button><button class="primary">Simpan perubahan</button></div></form></dialog>
+</body></html>
